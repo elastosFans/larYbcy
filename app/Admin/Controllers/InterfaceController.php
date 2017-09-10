@@ -19,11 +19,13 @@ use Encore\Admin\Widgets\InfoBox;
 use Encore\Admin\Widgets\Tab;
 use Encore\Admin\Widgets\Table;
 
-class HomeController extends Controller
+class InterfaceController extends Controller
 {
     public function index()
     {
         return Admin::content(function (Content $content) {
+
+            die("abc");
 
             $content->header('Dashboard');
             $content->description('Description...');
@@ -113,16 +115,6 @@ class HomeController extends Controller
         }
         );
     }
-
-
-//    public function uploadInterfaceData(){
-//        return Admin::content(function (Content $content){
-//            die("hello ");
-//        });
-//
-//
-//    }
-
 
 
 }

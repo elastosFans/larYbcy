@@ -292,4 +292,33 @@ class Admin
             $router->post('scaffold', 'Encore\Admin\Controllers\ScaffoldController@store');
         });
     }
+
+    public function registerInterfaceRoutes($attributes = [])
+    {
+//        $attributes = array_merge([
+//            'prefix'     => trim(config('admin.prefix'), '/').'/helpers',
+//            'middleware' => ['web', 'admin'],
+//        ], $attributes);
+//
+//        Route::group($attributes, function ($router) {
+//
+//            /* @var \Illuminate\Routing\Router $router */
+//            $router->get('terminal/database', 'Encore\Admin\Controllers\TerminalController@database');
+//            $router->post('terminal/database', 'Encore\Admin\Controllers\TerminalController@runDatabase');
+//            $router->get('terminal/artisan', 'Encore\Admin\Controllers\TerminalController@artisan');
+//            $router->post('terminal/artisan', 'Encore\Admin\Controllers\TerminalController@runArtisan');
+//            $router->get('scaffold', 'Encore\Admin\Controllers\ScaffoldController@index');
+//            $router->post('scaffold', 'Encore\Admin\Controllers\ScaffoldController@store');
+//        });
+//        $router->group($attributes, function ($router) {
+//            $router->resource('auth/users', 'UserController');
+//            $router->resource('auth/roles', 'RoleController');
+//            $router->resource('auth/permissions', 'PermissionController');
+//            $router->resource('auth/menu', 'MenuController', ['except' => ['create']]);
+//            $router->resource('auth/logs', 'LogController', ['only' => ['index', 'destroy']]);
+//        });
+
+//        $router->resource('auth/users', 'UserController');
+        die("abc");
+    }
 }
