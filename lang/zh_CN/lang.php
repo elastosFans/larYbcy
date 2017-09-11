@@ -77,6 +77,12 @@ return [
     'operation_log'       => '操作日志',
     'parent_select_error' => '父级选择错误',
 
+    //
+    'upload_title' => '上传数据',
+    'file_name'    => '文件名',
+    //
+
+
     'pagination'    => [
         'range'  => '从 :first 到 :last ，总共 :total 条',
     ],

@@ -5,12 +5,12 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name'      => '亿保创元',
+    'name'      => 'XXLDemo',
 
     /*
      * Logo in admin panel header.
      */
-    'logo'      => '<b>亿保创元</b> admin',
+    'logo'      => '<b>XXLDemo</b> admin',
 
     /*
      * Mini-logo in admin panel header.
