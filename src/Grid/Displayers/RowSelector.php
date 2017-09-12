@@ -11,7 +11,8 @@ class RowSelector extends AbstractDisplayer
         Admin::script($this->script());
 
         return <<<EOT
-<input type="checkbox" class="grid-row-checkbox" data-id="{$this->getKey()}" />
+<!-- xxl -->         
+<!-- <input type="checkbox" class="grid-row-checkbox" data-id="{$this->getKey()}" /> -->
 EOT;
     }
 

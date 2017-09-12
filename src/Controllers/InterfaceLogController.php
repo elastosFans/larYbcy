@@ -20,8 +20,9 @@ class InterfaceLogController extends Controller
      */
     public function index()
     {
+
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin::lang.administrator'));
+            $content->header(trans('admin::lang.upload_title'));
             $content->description(trans('admin::lang.list'));
             $content->body($this->grid()->render());
         });
@@ -66,25 +67,29 @@ class InterfaceLogController extends Controller
      */
     protected function grid()
     {
-        return Administrator::grid(function (Grid $grid) {
+        return InterfaceLog::grid(function (Grid $grid) {
+
             $grid->id('ID')->sortable();
-//            $grid->username(trans('admin::lang.username'));
-//            $grid->name(trans('admin::lang.name'));
-//            $grid->roles(trans('admin::lang.roles'))->pluck('name')->label();
-//            $grid->created_at(trans('admin::lang.created_at'));
-//            $grid->updated_at(trans('admin::lang.updated_at'));
-//
-//            $grid->actions(function (Grid\Displayers\Actions $actions) {
-//                if ($actions->getKey() == 1) {
-//                    $actions->disableDelete();
-//                }
-//            });
-//
-//            $grid->tools(function (Grid\Tools $tools) {
-//                $tools->batch(function (Grid\Tools\BatchActions $actions) {
-//                    $actions->disableDelete();
-//                });
-//            });
+
+            $grid->file_name(trans('admin::lang.file_name'))->value(function($text) {
+                $fileInfo = explode('/',$text);
+                return $fileInfo[1];
+            });
+
+            $grid->created_at(trans('admin::lang.created_at'));
+            $grid->updated_at(trans('admin::lang.updated_at'));
+
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                if ($actions->getKey() == 1) {
+                    $actions->disableDelete();
+                }
+            });
+
+            $grid->tools(function (Grid\Tools $tools) {
+                $tools->batch(function (Grid\Tools\BatchActions $actions) {
+                    $actions->disableDelete();
+                });
+            });
 
             $grid->disableExport();
         });
@@ -99,30 +104,16 @@ class InterfaceLogController extends Controller
     {
         return InterfaceLog::form(function (Form $form) {
             $form->display('id', 'ID');
-
-//            $form->text('username', trans('admin::lang.username'))->rules('required');
-//            $form->text('name', trans('admin::lang.name'))->rules('required');
-            $form->file('avatar', trans('admin::lang.file_name'));
-//            $form->password('password', trans('admin::lang.password'))->rules('required|confirmed');
-//            $form->password('password_confirmation', trans('admin::lang.password_confirmation'))->rules('required')
-//                ->default(function ($form) {
-//                    return $form->model()->password;
-//                });
-
-//            $form->ignore(['password_confirmation']);
-
-//            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
-//            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
-
-//            $form->display('user', trans('admin::lang.created_at'));
+            $form->file('file_name', trans('admin::lang.file_name'));
+            $form->hidden('show_name', trans('admin::lang.show_name'));
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
 
             $form->saving(function (Form $form) {
-//                  $form->user = "abc";
-//                if ($form->password && $form->model()->password != $form->password) {
-//                    $form->password = bcrypt($form->password);
-//                }
+//                die($form->file_name);
+//                $fileInfo = explode('/',$form->file_name);
+//                $form->show_name = $fileInfo[1];
+//                $form->user = "abc111";
             });
         });
     }

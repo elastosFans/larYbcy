@@ -80,6 +80,7 @@ return [
     //
     'upload_title' => '上传数据',
     'file_name'    => '文件名',
+    'show_name'    => '文件名',
     //
 
 
