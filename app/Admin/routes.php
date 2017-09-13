@@ -21,5 +21,3 @@ Route::group([
     $router->get('/', 'HomeController@index');
 
 });
-
-die("abc");
