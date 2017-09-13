@@ -72,13 +72,13 @@ EOT;
         $resource = $this->form->getResource($slice);
 
         $text = trans('admin::lang.list');
+        $resource = str_replace("http","https",$resource);
 
+        
         return <<<EOT
-<!--
 <div class="btn-group pull-right" style="margin-right: 10px">
     <a href="$resource" class="btn btn-sm btn-default"><i class="fa fa-list"></i>&nbsp;$text</a>
 </div>
--->
 EOT;
     }
 
