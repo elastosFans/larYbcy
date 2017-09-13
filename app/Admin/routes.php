@@ -22,3 +22,4 @@ Route::group([
 
 });
 
+die("abc");
