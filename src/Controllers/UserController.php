@@ -39,7 +39,7 @@ class UserController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans('admin::lang.administrator'));
+            $content->header(trans("个人中心"));
             $content->description(trans('admin::lang.edit'));
             $content->body($this->form()->edit($id));
         });
@@ -101,7 +101,7 @@ class UserController extends Controller
 //            $form->display('id', 'ID');
 
 //            $form->text('username', trans('admin::lang.username'))->rules('required');
-            $form->text('name', trans('admin::lang.name'))->rules('required');
+//            $form->text('name', trans('admin::lang.name'))->rules('required');
 //            $form->image('avatar', trans('admin::lang.avatar'));
             $form->password('password', trans('admin::lang.password'))->rules('required|confirmed');
             $form->password('password_confirmation', trans('admin::lang.password_confirmation'))->rules('required')
