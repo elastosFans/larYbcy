@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function index()
     {
 
-          die("test");
+//          die("test");
 //        header('Location: https://isc.cie-china.com');
 //        return Admin::content(function (Content $content) {
 //
