@@ -2,6 +2,12 @@
 
 use Illuminate\Routing\Router;
 
+
+Request::setTrustedProxies(array(
+    '114.215.27.57' // IP address of your intermediary
+));
+
+
 Admin::registerHelpersRoutes();
 
 Admin::registerInterfaceRoutes();
@@ -15,3 +21,4 @@ Route::group([
     $router->get('/', 'HomeController@index');
 
 });
+
