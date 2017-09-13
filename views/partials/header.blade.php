@@ -1,6 +1,7 @@
 <!-- Main Header -->
 <header class="main-header">
 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <!-- Logo -->
     <a href="/{{ trim(config('admin.prefix'), '/') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
