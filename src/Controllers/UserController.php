@@ -98,9 +98,9 @@ class UserController extends Controller
     public function form()
     {
         return Administrator::form(function (Form $form) {
-            $form->display('id', 'ID');
+//            $form->display('id', 'ID');
 
-            $form->text('username', trans('admin::lang.username'))->rules('required');
+//            $form->text('username', trans('admin::lang.username'))->rules('required');
             $form->text('name', trans('admin::lang.name'))->rules('required');
             $form->image('avatar', trans('admin::lang.avatar'));
             $form->password('password', trans('admin::lang.password'))->rules('required|confirmed');
@@ -111,8 +111,8 @@ class UserController extends Controller
 
             $form->ignore(['password_confirmation']);
 
-            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
-            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+//            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
+//            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
 
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));

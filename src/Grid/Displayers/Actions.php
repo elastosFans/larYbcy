@@ -135,9 +135,10 @@ class Actions extends AbstractDisplayer
         return <<<EOT
         
 <!-- xxl -->        
-<!-- <a href="{$this->getResource()}/{$this->getKey()}/edit">
+<a href="{$this->getResource()}/{$this->getKey()}/edit">
     <i class="fa fa-edit"></i>
-</a> -->
+</a>
+
 EOT;
     }
 

@@ -11,13 +11,13 @@ return [
     /*
      * Logo in admin panel header.
      */
-//    'logo'      => '<b>XXLDemo</b> admin',
+//   'logo'      => '<b>XXLDemo</b> admin',
     'logo'      => '<b>亿保创元</b>',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>ybcy</b>',
+    'logo-mini' => '<b>亿保创元</b>',
 
     /*
      * Laravel-admin url prefix.
@@ -55,7 +55,7 @@ return [
             'file'   => 'file',
         ],
 
-        'host' => 'http://localhost:8000/upload/',
+        'host' => 'http://localhost:1024/upload/',
     ],
 
     /*
