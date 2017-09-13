@@ -53,7 +53,7 @@ class UserController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin::lang.administrator'));
+            $content->header("个人中心");
             $content->description(trans('admin::lang.create'));
             $content->body($this->form());
         });
