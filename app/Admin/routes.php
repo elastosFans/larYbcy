@@ -21,3 +21,4 @@ Route::group([
     $router->get('/', 'HomeController@index');
 
 });
+
