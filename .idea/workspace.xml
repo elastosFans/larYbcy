@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a3e4436-198b-4201-ac9b-e0a9f0705933" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/app.php" afterPath="$PROJECT_DIR$/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Middleware/Authenticate.php" afterPath="$PROJECT_DIR$/src/Middleware/Authenticate.php" />
     </list>
     <ignored path="larYbcy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,11 +63,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/app.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="393">
               <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/AuthTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authenticate.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Middleware/Authenticate.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -129,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/Controllers/UserController.php" />
         <option value="$PROJECT_DIR$/src/Controllers/LogController.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/src/Middleware/Authenticate.php" />
       </list>
     </option>
   </component>
@@ -372,12 +393,12 @@
       <workItem from="1505064722225" duration="4541000" />
       <workItem from="1505127415449" duration="6293000" />
       <workItem from="1505142785827" duration="10065000" />
-      <workItem from="1505215828222" duration="13965000" />
+      <workItem from="1505215828222" duration="14137000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35720000" />
+    <option name="totallyTimeSpent" value="35892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1436" height="877" extended-state="0" />
@@ -441,19 +462,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/UserController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Controllers/TerminalController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1505064639000" expanded="true" signature="6732:6738" ph=" " />
-            <marker date="1505064639000" expanded="true" signature="6738:6744" ph=" " />
-            <marker date="1505064639000" expanded="true" signature="6744:6750" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -751,7 +759,7 @@
         <state relative-caret-position="285">
           <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
           <folding>
-            <element signature="e#44#88#0#PHP" expanded="true" />
+            <element signature="e#44#88#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -880,6 +888,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
           <caret line="62" column="44" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/AuthTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Middleware/Authenticate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding />
         </state>
       </provider>

@@ -19,6 +19,8 @@ class Authenticate
     public function handle($request, Closure $next)
     {
         if (Auth::guard('admin')->guest() && !$this->shouldPassThrough($request)) {
+
+            die("xxl handle ...");
             return redirect()->guest(Admin::url('auth/login'));
         }
 
