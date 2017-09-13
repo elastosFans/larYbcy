@@ -20,7 +20,7 @@ class Authenticate
     {
         if (Auth::guard('admin')->guest() && !$this->shouldPassThrough($request)) {
 
-            //die("xxl handle ...");
+            die("xxl handle ...");
             return redirect()->guest(Admin::url('auth/login'));
         }
 
