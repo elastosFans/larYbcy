@@ -55,7 +55,7 @@ return [
             'file'   => 'file',
         ],
 
-        'host' => 'http://localhost:1024/upload/',
+        'host' => '0.0.0.0:1024/upload/',
     ],
 
     /*
