@@ -134,11 +134,11 @@ class Actions extends AbstractDisplayer
     {
         return <<<EOT
         
-<!-- xxl -->        
+<!-- xxl         
 <a href="{$this->getResource()}/{$this->getKey()}/edit">
     <i class="fa fa-edit"></i>
 </a>
-
+-->
 EOT;
     }
 

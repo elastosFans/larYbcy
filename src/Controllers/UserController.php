@@ -22,11 +22,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Admin::content(function (Content $content) {
-            $content->header(trans('admin::lang.administrator'));
-            $content->description(trans('admin::lang.list'));
-            $content->body($this->grid()->render());
-        });
+        return redirect()->guest(Admin::url('auth/interface/create'));
+//        return Admin::content(function (Content $content) {
+//            $content->header(trans('admin::lang.administrator'));
+//            $content->description(trans('admin::lang.list'));
+//            $content->body($this->grid()->render());
+//        });
     }
 
     /**
