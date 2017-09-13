@@ -51,7 +51,8 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://localhost'),
+    //'url' => env('APP_URL', 'https://localhost'),
+    'url' => env('APP_URL', 'https://isc.cie-china.com/admin'),
 
     /*
     |--------------------------------------------------------------------------
