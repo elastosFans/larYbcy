@@ -46,10 +46,10 @@
 
     @include('admin::partials.sidebar')
 
-    {{--<div class="content-wrapper" id="pjax-container">--}}
-        {{--@yield('content')--}}
-        {{--{!! Admin::script() !!}--}}
-    {{--</div>--}}
+    <div class="content-wrapper" id="pjax-container">
+        @yield('content')
+        {!! Admin::script() !!}
+    </div>
 
     @include('admin::partials.footer')
 
