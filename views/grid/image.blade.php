@@ -21,7 +21,8 @@
             @foreach($grid->rows() as $row)
                 <li>
                     <span class="mailbox-attachment-icon has-img">
-                        <img src="{!! isset($server) ? $server : config('admin.upload.host') !!}/{!! $row->column($image_column) !!}" alt="Attachment">
+                        <img src="upload/{!! $row->column($image_column) !!}" alt="Attachment">
+                        {{--<img src="{!! isset($server) ? $server : config('admin.upload.host') !!}/{!! $row->column($image_column) !!}" alt="Attachment">--}}
                     </span>
                     <div class="mailbox-attachment-info">
                         <a href="#" class="mailbox-attachment-name" style="word-break:break-all;">
