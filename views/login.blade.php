@@ -76,6 +76,10 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.1.4 -->
+<!--[if !IE]> -->
+<script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
+<!-- <![endif]-->
+
 <!--[if gt IE 8]>
 <script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
 <![endif]-->

@@ -23,7 +23,13 @@
     <link rel="stylesheet" href="{{ asset("/packages/admin/google-fonts/fonts.css") }}">
     <link rel="stylesheet" href="{{ asset("/packages/admin/AdminLTE/dist/css/AdminLTE.min.css") }}">
 
+
     <!-- REQUIRED JS SCRIPTS -->
+    <!--[if !IE]> -->
+    <script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
+    <!-- <![endif]-->
+
+
     <!--[if gt IE 8]>
     <script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
     <![endif]-->
