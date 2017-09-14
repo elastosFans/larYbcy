@@ -9,13 +9,13 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.5 -->
-  <link rel="stylesheet" href="{{ asset("/packages/admin/AdminLTE/bootstrap/css/bootstrap.min.css") }}">
+  <link rel="stylesheet" href="https://isc.cie-china.com/packages/admin/AdminLTE/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset("/packages/admin/font-awesome/css/font-awesome.min.css") }}">
+  <link rel="stylesheet" href="https://isc.cie-china.com/packages/admin/font-awesome/css/font-awesome.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset("/packages/admin/AdminLTE/dist/css/AdminLTE.min.css") }}">
+  <link rel="stylesheet" href="https://isc.cie-china.com/packages/admin/AdminLTE/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset("/packages/admin/AdminLTE/plugins/iCheck/square/blue.css") }}">
+  <link rel="stylesheet" href="https://isc.cie-china.com/packages/admin/AdminLTE/plugins/iCheck/square/blue.css">
 
   <?php header('Access-Control-Allow-Origin:*'); ?>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -77,11 +77,10 @@
 
 <!-- jQuery 2.1.4 -->
 <script src="https://isc.cie-china.com/packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<script type="text/javascript">var jQuery=$;</script> <!-- 解决jquery和其他引入的JS冲突 -->
 <!-- Bootstrap 3.3.5 -->
-<script src="{{ asset("packages/admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
+<script src="https://isc.cie-china.com/packages/admin/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 <!-- iCheck -->
-<script src="{{ asset("packages/admin/AdminLTE/plugins/iCheck/icheck.min.js")}}"></script>
+<script src="https://isc.cie-china.com/packages/admin/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
