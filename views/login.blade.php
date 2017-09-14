@@ -76,7 +76,14 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.1.4 -->
+<!--[if gt IE 8]>
 <script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js")}} "></script>
+<![endif]-->
+
+<!--[if lte IE 8]>
+<script src="{{ asset("packages/admin/AdminLTE/plugins/jQuery/jQuery-1.1.3.min.js")}} "></script>
+<![endif]-->
+
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ asset("packages/admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 <!-- iCheck -->
