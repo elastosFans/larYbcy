@@ -77,6 +77,7 @@
 
 <!-- jQuery 2.1.4 -->
 <script src="https://isc.cie-china.com/packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script type="text/javascript">var jQuery=$;</script> <!-- 解决jquery和其他引入的JS冲突 -->
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ asset("packages/admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 <!-- iCheck -->
