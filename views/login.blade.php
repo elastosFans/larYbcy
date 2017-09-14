@@ -76,7 +76,7 @@
 <!-- /.login-box -->
 
 <!-- jQuery 2.1.4 -->
-<script src="/packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<script src="https://isc.cie-china.com/packages/admin/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ asset("packages/admin/AdminLTE/bootstrap/js/bootstrap.min.js")}}"></script>
 <!-- iCheck -->
