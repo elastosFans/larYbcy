@@ -20,7 +20,7 @@ class InterfaceLogController extends Controller
      */
     public function index()
     {
-        die("index");
+        //die("index");
 
         return Admin::content(function (Content $content) {
             $content->header(trans('admin::lang.upload_title'));
