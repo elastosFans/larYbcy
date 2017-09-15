@@ -18,7 +18,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        die("xxl LogController");
+        //die("xxl LogController");
         return Admin::content(function (Content $content) {
             $content->header(trans('admin::lang.operation_log'));
             $content->description(trans('admin::lang.list'));
