@@ -221,6 +221,10 @@ class UrlGenerator implements UrlGeneratorContract
         // for asset paths, but only for routes to endpoints in the application.
         $root = $this->formatRoot($this->formatScheme($secure));
 
+// xxl
+//        echo "abc";
+//        die($root);
+//        return 'http:1029//'.trim($path, '/');
         return $this->removeIndex($root).'/'.trim($path, '/');
     }
 
@@ -409,8 +413,11 @@ class UrlGenerator implements UrlGeneratorContract
             $root = $this->cachedRoot;
         }
 
-        $start = Str::startsWith($root, 'http://') ? 'http://' : 'https://';
-
+        $start = Str::startsWith($root, 'https://') ? 'http://' : 'http://';
+//xxl
+//        die($scheme);
+//        $start = 'http://';
+//          return "http://";
         return preg_replace('~'.$start.'~', $scheme, $root, 1);
     }
 
@@ -433,6 +440,11 @@ class UrlGenerator implements UrlGeneratorContract
             $path = call_user_func($this->formatPathUsing, $path);
         }
 
+
+        //xxl
+        $root = str_replace("https","http",$root);
+        //die($root);
+        //$root = "http://";
         return trim($root.$path, '/');
     }
 
@@ -444,10 +456,14 @@ class UrlGenerator implements UrlGeneratorContract
      */
     public function isValidUrl($path)
     {
-        if (! preg_match('~^(#|//|https?://|mailto:|tel:)~', $path)) {
+     //xxl
+//        if (! preg_match('~^(#|//|https?://|mailto:|tel:)~', $path)) {
+//            return filter_var($path, FILTER_VALIDATE_URL) !== false;
+//        }
+
+        if (! preg_match('~^(#|//|http?://|mailto:|tel:)~', $path)) {
             return filter_var($path, FILTER_VALIDATE_URL) !== false;
         }
-
         return true;
     }
 

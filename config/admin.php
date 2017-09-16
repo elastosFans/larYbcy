@@ -5,19 +5,19 @@ return [
     /*
      * Laravel-admin name.
      */
- //   'name'      => 'XXLDemo',
-    'name'      => '亿保创元',
+   'name'      => 'XXLDemo',
+ //   'name'      => '亿保创元',
 
     /*
      * Logo in admin panel header.
      */
-//   'logo'      => '<b>XXLDemo</b> admin',
-    'logo'      => '<b>亿保创元</b>',
+   'logo'      => '<b>XXLDemo</b> admin',
+//    'logo'      => '<b>亿保创元</b>',
 
     /*
      * Mini-logo in admin panel header.
      */
-    'logo-mini' => '<b>亿保创元</b>',
+//    'logo-mini' => '<b>亿保创元</b>',
 
     /*
      * Laravel-admin url prefix.

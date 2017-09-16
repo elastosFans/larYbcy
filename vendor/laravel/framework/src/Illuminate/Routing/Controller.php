@@ -60,7 +60,7 @@ abstract class Controller
      *
      * @param  array   $parameters
      * @return mixed
-     *
+     * q
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function missingMethod($parameters = [])
