@@ -72,7 +72,7 @@ EOT;
         $resource = $this->form->getResource($slice);
 
         $text = trans('admin::lang.list');
-        $resource = str_replace("http","https",$resource);
+//        $resource = str_replace("http","https",$resource);
 
         $pos = strpos($resource, "interface");
         if($pos > 0){
