@@ -116,9 +116,14 @@ class Actions extends AbstractDisplayer
             array_push($actions, $this->editAction());
         }
 
+        array_push($actions, $this->downloadAction());
+
         if ($this->allowDelete) {
             array_push($actions, $this->deleteAction());
         }
+
+
+
 
         $actions = array_merge($actions, $this->appends);
 
@@ -132,15 +137,128 @@ class Actions extends AbstractDisplayer
      */
     protected function editAction()
     {
+
+//xxl
         return <<<EOT
-        
-<!-- xxl         
+
+<!--        
 <a href="{$this->getResource()}/{$this->getKey()}/edit">
     <i class="fa fa-edit"></i>
 </a>
 -->
+
 EOT;
     }
+
+
+    /**
+     * Get key of current row.
+     * xxl
+     * @return mixed
+     */
+    public function getFileName()
+    {
+        return $this->row->{'file_name'};
+    }
+
+    /**
+     * Get resource of upload.
+     * xxl
+     * @return string
+     */
+    public function getUploadUri()
+    {
+        $curUri = parent::getResource();
+        $curUriArray = explode("/",$curUri);
+        $uploadUri = $curUriArray[0]."/"."upload/".$this->getFileName();
+
+        return $uploadUri;
+
+    }
+
+
+//    function downloadFile(){
+//        //文件下载
+//        $fileinfo = pathinfo($this->getUploadUri());
+//        header('Content-type: application/x-'.$fileinfo['extension']);
+//        header('Content-Disposition: attachment; filename='.$fileinfo['basename']);
+//        header('Content-Length: '.filesize($this->getUploadUri());
+//        readfile($this->getUploadUri());
+//        exit();
+//
+//    }
+
+    /**
+     * Built edit action.
+     *
+     * @return string
+     */
+    protected function downloadAction()
+    {
+
+//xxl
+        $script = <<<SCRIPT
+$('.grid-row-download').unbind('click').click(function() {
+
+       alert('{$this->getFileName()}');
+        
+       try{
+            var elemIF = document.createElement("iframe");
+            elemIF.src ='{$this->getUploadUri()}';
+            elemIF.style.display = "none";
+            document.body.appendChild(elemIF);
+        }catch(e){
+            alert("error");
+        }
+
+//var form=$("<form>");//定义一个form表单
+//form.attr("style","display:none");
+//form.attr("target","");
+//form.attr("method","post");
+//form.attr("action","exportData");
+//var input1=$("<input>");
+//input1.attr("type","hidden");
+//input1.attr("name","exportData");
+//input1.attr("value",(new Date()).getMilliseconds());
+//$("body").append(form);//将表单放置在web中
+//form.append(input1);
+//form.submit();//表单提交
+
+
+});
+SCRIPT;
+        Admin::script($script);
+        return <<<EOT
+   
+<!--        
+<a href="{$this->getUploadUri()}/{$this->getFileName()}">
+<i class="fa fa-download"></i> 
+</a>
+-->
+
+
+<a href="javascript:void(0);" data-id="{$this->getKey()}" class="grid-row-download">
+<i class="fa fa-download"></i> 
+</a>
+
+ 
+<!--  
+<a href="{$this->getUploadUri()}" download="w3logo">        
+ <i class="fa fa-download"></i>
+</a>
+-->
+
+<!-- 
+<a href="{$this->getUploadUri()}" target="_blank">
+    <i class="fa fa-download"></i>
+</a>
+-->
+
+EOT;
+
+    }
+
+
 
     /**
      * Built delete action.
@@ -154,6 +272,9 @@ EOT;
         $script = <<<SCRIPT
 
 $('.grid-row-delete').unbind('click').click(function() {
+
+
+
     if(confirm("{$confirm}")) {
         $.ajax({
             method: 'post',

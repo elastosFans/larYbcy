@@ -442,7 +442,7 @@ class UrlGenerator implements UrlGeneratorContract
 
 
         //xxl
-        $root = str_replace("https","http",$root);
+        //$root = str_replace("https","http",$root);
         //die($root);
         //$root = "http://";
         return trim($root.$path, '/');
