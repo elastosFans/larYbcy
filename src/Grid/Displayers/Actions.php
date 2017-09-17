@@ -200,7 +200,7 @@ EOT;
         $script = <<<SCRIPT
 $('.grid-row-download').unbind('click').click(function() {
 
-       alert($(this).data('id'));
+//       alert($(this).data('id'));
         
        try{
             var elemIF = document.createElement("iframe");
@@ -215,30 +215,11 @@ $('.grid-row-download').unbind('click').click(function() {
 SCRIPT;
         Admin::script($script);
         return <<<EOT
-   
-<!--        
-<a href="{$this->getUploadUri()}/{$this->getFileName()}">
-<i class="fa fa-download"></i> 
-</a>
--->
-
 
 <a href="javascript:void(0);" data-id="{$this->getFileName()}" class="grid-row-download">
 <i class="fa fa-download"></i> 
 </a>
 
- 
-<!--  
-<a href="{$this->getUploadUri()}" download="w3logo">        
- <i class="fa fa-download"></i>
-</a>
--->
-
-<!-- 
-<a href="{$this->getUploadUri()}" target="_blank">
-    <i class="fa fa-download"></i>
-</a>
--->
 
 EOT;
 
