@@ -22,6 +22,9 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
+
+        $curr_ip=$_SERVER['REMOTE_ADDR'];
+        die($curr_ip);
         if (!Auth::guard('admin')->guest()) {
             return redirect(config('admin.prefix'));
         }
