@@ -25,11 +25,12 @@ class AuthController extends Controller
 
         //xxl white list
         $currIp=$_SERVER['REMOTE_ADDR'];
-        $whiteList=$this->app['config']["auth.white_list"];; //白名单规则
+        $whiteList=array("183.192.17.31","222.178.110.33","222.178.110.35");
         $isIn = in_array($currIp,$whiteList);
+        //
 
         if($isIn == false){
-            die($currIp."不在白名单内!");
+            die($currIp." 不在白名单内!");
         }
 
         if (!Auth::guard('admin')->guest()) {
