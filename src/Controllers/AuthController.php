@@ -23,8 +23,15 @@ class AuthController extends Controller
     public function getLogin()
     {
 
-        $curr_ip=$_SERVER['REMOTE_ADDR'];
-        die($curr_ip);
+        //xxl white list
+        $currIp=$_SERVER['REMOTE_ADDR'];
+        $whiteList=$this->app['config']["auth.white_list"];; //白名单规则
+        $isIn = in_array($currIp,$whiteList);
+
+        if($isIn == false){
+            die($currIp."不在白名单内!");
+        }
+
         if (!Auth::guard('admin')->guest()) {
             return redirect(config('admin.prefix'));
         }
