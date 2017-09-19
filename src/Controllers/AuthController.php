@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         //xxl white list
         $currIp=$_SERVER['REMOTE_ADDR'];
-        $whiteList=array("183.192.17.31","222.178.110.33","222.178.110.35");
+        $whiteList=array("127.0.0.1","183.192.17.31","222.178.110.33","222.178.110.35","119.57.110.226");
         $isIn = in_array($currIp,$whiteList);
         //
 
