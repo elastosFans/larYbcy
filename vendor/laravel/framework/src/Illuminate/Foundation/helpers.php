@@ -131,7 +131,12 @@ if (! function_exists('asset')) {
      */
     function asset($path, $secure = null)
     {
-        //$secure = 0;
+
+
+        //xxl start
+        $secure = app('config')->get('admin.security');
+        //xxl end
+
         return app('url')->asset($path, $secure);
     }
 }

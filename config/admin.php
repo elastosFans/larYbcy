@@ -122,4 +122,6 @@ return [
      * Version displayed in footer.
      */
     'version'   => '1.0',
+
+    'security'  => 1,
 ];
