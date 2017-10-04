@@ -123,5 +123,5 @@ return [
      */
     'version'   => '1.0',
 
-    'security'  => 1,
+    'security'  => 0,
 ];
