@@ -221,9 +221,8 @@ SCRIPT;
 <i class="fa fa-download"></i> 
 </a>
 
-//xxl download end
-
 EOT;
+//xxl download end
 
     }
 
