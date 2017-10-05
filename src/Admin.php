@@ -307,7 +307,7 @@ class Admin
 
             /* @var \Illuminate\Routing\Router $router */
             $router->group($attributes, function ($router) {
-                $router->resource('auth/interface124', 'InterfaceLogController');
+                $router->resource('auth/interface', 'InterfaceLogController');
             });
 
         });
