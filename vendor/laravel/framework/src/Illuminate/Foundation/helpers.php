@@ -133,9 +133,9 @@ if (! function_exists('asset')) {
     {
 
 
-        //xxl start
+        //xxl start https
         $secure = app('config')->get('admin.security');
-        //xxl end
+        //xxl end   https
 
         return app('url')->asset($path, $secure);
     }

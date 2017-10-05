@@ -165,6 +165,10 @@ class Builder
             return $this->form->resource($slice);
         }
 
+        //xxl add getResource https start
+        //$orgUrl
+        //xxl add getResource https end
+
         return $this->form->resource();
     }
 

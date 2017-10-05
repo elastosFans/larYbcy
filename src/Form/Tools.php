@@ -68,15 +68,16 @@ EOT;
 
     public function listButton()
     {
+
+//xxl test
         $slice = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
         $resource = $this->form->getResource($slice);
+var_dump($resource);
+die("abc");
 
         $text = trans('admin::lang.list');
-//        $resource = str_replace("http","https",$resource);
-
         $pos = strpos($resource, "interface");
         if($pos > 0){
-//xxl
         return <<<EOT
 <div class="btn-group pull-right" style="margin-right: 10px">
     <a href="$resource" class="btn btn-sm btn-default"><i class="fa fa-list"></i>&nbsp;$text</a>

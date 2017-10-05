@@ -138,7 +138,7 @@ class Actions extends AbstractDisplayer
     protected function editAction()
     {
 
-//xxl
+//xxl delete edit start
         return <<<EOT
 
 <!--        
@@ -148,12 +148,13 @@ class Actions extends AbstractDisplayer
 -->
 
 EOT;
+//xxl delete edit end
     }
 
 
     /**
      * Get key of current row.
-     * xxl
+     * xxl getFileName
      * @return mixed
      */
     public function getFileName()
@@ -163,7 +164,7 @@ EOT;
 
     /**
      * Get resource of upload.
-     * xxl
+     * xxl getUploadUri
      * @return string
      */
     public function getUploadUri()
@@ -196,7 +197,7 @@ EOT;
     protected function downloadAction()
     {
 
-//xxl
+//xxl download start
         $script = <<<SCRIPT
 $('.grid-row-download').unbind('click').click(function() {
 
@@ -220,6 +221,7 @@ SCRIPT;
 <i class="fa fa-download"></i> 
 </a>
 
+//xxl download end
 
 EOT;
 
