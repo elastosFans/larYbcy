@@ -113,6 +113,6 @@ class HomeController extends Controller
 //            $content->row((new Box('Table', new Table($headers, $rows)))->style('info')->solid());
 //        });
 
-        return redirect()->guest(Admin::url('auth/interface/create'));
+        return redirect()->guest(Admin::url('auth/interface/create123'));
     }
 }
