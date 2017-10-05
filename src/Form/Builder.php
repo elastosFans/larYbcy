@@ -159,28 +159,13 @@ class Builder
     public function getResource($slice = null)
     {
 
-        $resource = "";
         if ($this->mode == self::MODE_CREATE) {
-            $resource = $this->form->resource(-1);
-        }else if ($slice !== null) {
-            $resource =  $this->form->resource($slice);
-        }else{
-            $resource =  $this->form->resource();
+            return $this->form->resource(-1);
+        }if ($slice !== null) {
+            return  $this->form->resource($slice);
         }
 
-        //xxl add getResource https start 
-        $secure = app('config')->get('admin.security');
-
-        //$resource = str_replace($resource,"http://","https://"); 
-
-
-        if ($secure == 1){
-            //$resource = str_replace("http:","https:",$resource); 
-            $resource = str_replace("http:","https:",$resource);
-            //$test = str_replace("http://","https://","abcded"); 
-        }
-
-        return $resource;
+        return $this->form->resource();
     }
 
     /**

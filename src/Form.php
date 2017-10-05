@@ -1120,7 +1120,18 @@ class Form
             $segments = array_slice($segments, 0, $slice);
         }
 
-        return implode('/', $segments);
+
+        //xxl https start resource
+        $resource = implode('/', $segments);
+        $secure = app('config')->get('admin.security');
+        if ($secure == 1){
+            //$resource = str_replace("http:","https:",$resource); 
+            $resource = str_replace("http:","https:",$resource);
+            //$test = str_replace("http://","https://","abcded"); 
+        }
+        //xxl https end resource
+
+        return $resource;
     }
 
     /**

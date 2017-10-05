@@ -68,11 +68,10 @@ EOT;
 
     public function listButton()
     {
-//xxl test
+
         $slice = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
         $resource = $this->form->getResource($slice);
-//var_dump($resource);
-//die("abc");
+
         $text = trans('admin::lang.list');
         $pos = strpos($resource, "interface");
         if($pos > 0){
