@@ -18,6 +18,10 @@ class Field implements Renderable
 {
     const FILE_DELETE_FLAG = '_file_del_';
 
+    //xxl
+    protected $isHidden = false;
+    //xxl
+
     /**
      * Element id.
      *

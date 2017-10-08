@@ -1,4 +1,10 @@
+
+@if($options)
 <div class="form-group {!! !$errors->has($errorKey) ?: 'has-error' !!}">
+@else
+<div class="form-group {!! !$errors->has($errorKey) ?: 'has-error' !!}" style="display:none;">
+@endif
+
 
     <label for="{{$id}}" class="col-sm-{{$width['label']}} control-label">{{$label}}</label>
 

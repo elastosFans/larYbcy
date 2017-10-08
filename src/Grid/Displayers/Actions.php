@@ -116,7 +116,7 @@ class Actions extends AbstractDisplayer
             array_push($actions, $this->editAction());
         }
 
-        array_push($actions, $this->downloadAction());
+        //array_push($actions, $this->downloadAction());
 
         if ($this->allowDelete) {
             array_push($actions, $this->deleteAction());
@@ -138,14 +138,13 @@ class Actions extends AbstractDisplayer
     protected function editAction()
     {
 
-//xxl delete edit start
+//xxl delete edit start return
         return <<<EOT
 
-<!--        
+       
 <a href="{$this->getResource()}/{$this->getKey()}/edit">
     <i class="fa fa-edit"></i>
 </a>
--->
 
 EOT;
 //xxl delete edit end

@@ -37,8 +37,8 @@ class File extends Field
      */
     public function __construct($column, $arguments = [])
     {
-        $this->initStorage();
 
+        $this->initStorage();
         parent::__construct($column, $arguments);
     }
 
@@ -168,7 +168,11 @@ class File extends Field
         $this->setupDefaultOptions();
 
         if (!empty($this->value)) {
-            $this->attribute('data-initial-preview', $this->preview());
+
+            //xxl change preview start
+            //$this->attribute('data-initial-preview', $this->preview());
+            $this->attribute('data-initial-preview', $this->value);
+            //xxl change preview end
 
             $this->setupPreviewOptions();
         }

@@ -17,6 +17,12 @@ class Select extends Field
         '/packages/admin/AdminLTE/plugins/select2/select2.full.min.js',
     ];
 
+    //xxl start select hidden
+    public function hidden(){
+        $this->isHidden = true;
+    }
+    //xxl end select hidden
+
     public function render()
     {
         if (empty($this->script)) {

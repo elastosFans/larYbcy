@@ -75,4 +75,31 @@ class Role extends Model
     {
         return !$this->can($permission);
     }
+
+
+    /**
+     * xxl get the roles.
+     *
+     * @param $permission
+     *
+     * @return bool
+     */
+    public static function getRoles($roleID)
+    {
+        $roleInfo = (new static)->newQuery()->get(['*'])->where("id",">=",$roleID);
+        return $roleInfo;
+    }
+
+    /**
+     * xxl get the roles.
+     *
+     * @param $permission
+     *
+     * @return bool
+     */
+    public static function getRoleFromName($name)
+    {
+        $roleInfo = (new static)->newQuery()->get(['*'])->where("name","=",$name);
+        return $roleInfo;
+    }
 }

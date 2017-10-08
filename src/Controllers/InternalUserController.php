@@ -11,7 +11,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
-class UserController extends Controller
+class InternalUserController extends Controller
 {
     use ModelForm;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin::lang.administrator'));
+            $content->header(trans('admin::lang.internal_user'));
             $content->description(trans('admin::lang.list'));
             $content->body($this->grid()->render());
         });
@@ -39,7 +39,7 @@ class UserController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans("个人中心"));
+            $content->header(trans('admin::lang.internal_user'));
             $content->description(trans('admin::lang.edit'));
             $content->body($this->form()->edit($id));
         });
@@ -53,7 +53,7 @@ class UserController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header("个人中心");
+            $content->header(trans('admin::lang.internal_user'));
             $content->description(trans('admin::lang.create'));
             $content->body($this->form());
         });
@@ -87,6 +87,9 @@ class UserController extends Controller
             });
 
             $grid->disableExport();
+
+            $grid->model()->where('type', '=', 0);
+
         });
     }
 
@@ -111,7 +114,11 @@ class UserController extends Controller
 
             $form->ignore(['password_confirmation']);
             $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
-            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+            //xxl start permissions
+            //$form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->hidden();
+            //$form->('permissions',trans('admin::lang.permissions'));
+            //xxl end permissions
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
 
@@ -119,6 +126,8 @@ class UserController extends Controller
                 if ($form->password && $form->model()->password != $form->password) {
                     $form->password = bcrypt($form->password);
                 }
+
+                $form->permissions =array(1);
             });
         });
     }

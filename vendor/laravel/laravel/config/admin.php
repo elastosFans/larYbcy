@@ -53,7 +53,9 @@ return [
             'file'   => 'file',
         ],
 
-        'host' => 'http://localhost:1024/upload/',
+        //xxl start upload
+        'host' => 'http://localhost:1024/upload',
+        //xxl end upload
     ],
 
     /*

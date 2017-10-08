@@ -246,6 +246,7 @@ class Admin
         return $this->navbar;
     }
 
+
     public function registerAuthRoutes()
     {
         $attributes = [
@@ -255,11 +256,17 @@ class Admin
         ];
 
         Route::group($attributes, function ($router) {
-            $attributes = ['middleware' => 'admin.permission:allow,administrator'];
 
+//xxl start Auth
+//            $attributes = ['middleware' => 'admin.permission:allow,administrator,customer_manager'];
             /* @var \Illuminate\Routing\Router $router */
-            $router->group($attributes, function ($router) {
+//           $router->group($attributes, function ($router) {
+            $router->group([], function ($router) {
+                $router->resource('user/web', 'WebUserController');
+                $router->resource('user/internal', 'InternalUserController');
+//xxl end Auth
                 $router->resource('auth/users', 'UserController');
+
                 $router->resource('auth/roles', 'RoleController');
                 $router->resource('auth/permissions', 'PermissionController');
                 $router->resource('auth/menu', 'MenuController', ['except' => ['create']]);
@@ -273,6 +280,8 @@ class Admin
             $router->put('auth/setting', 'AuthController@putSetting');
         });
     }
+
+
 
     public function registerHelpersRoutes($attributes = [])
     {

@@ -33,4 +33,30 @@ class Administrator extends Model implements AuthenticatableContract
 
         parent::__construct($attributes);
     }
+
+    /**
+     * xxl get the name.
+     *
+     * @param $permission
+     *
+     * @return bool
+     */
+    public static function hasName($name)
+    {
+        $count = (new static)->newQuery()->where("name","=",$name)->count();
+        return $count;
+    }
+
+    /**
+     * xxl get the name.
+     *
+     * @param $permission
+     *
+     * @return bool
+     */
+    public static function getTypeFromName($name)
+    {
+        $obj = (new static)->newQuery()->get(['*'])->where("name","=",$name)->first();
+        return $obj->type;
+    }
 }

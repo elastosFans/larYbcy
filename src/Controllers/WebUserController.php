@@ -11,7 +11,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
-class UserController extends Controller
+class WebUserController extends Controller
 {
     use ModelForm;
 
@@ -23,7 +23,7 @@ class UserController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-            $content->header(trans('admin::lang.administrator'));
+            $content->header(trans('admin::lang.web_user'));
             $content->description(trans('admin::lang.list'));
             $content->body($this->grid()->render());
         });
@@ -39,7 +39,7 @@ class UserController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans("个人中心"));
+            $content->header(trans('admin::lang.web_user'));
             $content->description(trans('admin::lang.edit'));
             $content->body($this->form()->edit($id));
         });
@@ -53,7 +53,7 @@ class UserController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header("个人中心");
+            $content->header(trans('admin::lang.web_user'));
             $content->description(trans('admin::lang.create'));
             $content->body($this->form());
         });
@@ -87,6 +87,14 @@ class UserController extends Controller
             });
 
             $grid->disableExport();
+
+
+            if(Admin::user()->can("owner")){ //internal
+                $grid->model()->where('type', '>', 0);
+            }else{ //web
+                $grid->model()->where('type', '=', Admin::user()->type);
+            }
+
         });
     }
 
@@ -110,8 +118,28 @@ class UserController extends Controller
                 });
 
             $form->ignore(['password_confirmation']);
-            $form->multipleSelect('roles', trans('admin::lang.roles'))->options(Role::all()->pluck('name', 'id'));
-            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+
+            //xxl start roles
+            if(Admin::user()->can("owner")){ //internal
+                //todo and the web user logic
+                $result = Role::getRoles(5)->pluck('name', 'id');
+            }else{ //web
+                $rols = Admin::user()->roles->first();
+                $result = Role::getRoles($rols->id)->pluck('name', 'id');
+            }
+            $form->multipleSelect('roles', trans('admin::lang.roles'))->options($result);
+            //xxl end roles
+
+            //xxl start permissions
+            //$form->multipleSelect('permissions', trans('admin::lang.permissions'))->options(Permission::all()->pluck('name', 'id'));
+            $form->multipleSelect('permissions', trans('admin::lang.permissions'))->hidden();
+            //$form->('permissions',trans('admin::lang.permissions'));
+            //xxl end permissions
+
+            //xxl start type
+            $form->hidden('type','type');
+            //xxl end type
+
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
 
@@ -119,7 +147,26 @@ class UserController extends Controller
                 if ($form->password && $form->model()->password != $form->password) {
                     $form->password = bcrypt($form->password);
                 }
+
+                //xxl start add user logic
+                $form->permissions =array(2);
+
+                if(Admin::user()->can("owner")){ //internal
+                    //todo and the web user logic
+                    $count = Admin::user()->hasName($form->name);
+                    if($count == 0) {
+                        $form->type = time() + rand(0, 9);
+                    }else{
+                        $form->type = Admin::user()->getTypeFromName($form->name);
+                    }
+                }else{ //web
+                    $form->type = Admin::user()->type;
+                }
+                //xxl end user logic
             });
         });
     }
+
+
+
 }
