@@ -120,13 +120,17 @@ class WebUserController extends Controller
             $form->ignore(['password_confirmation']);
 
             //xxl start roles
-            if(Admin::user()->can("owner")){ //internal
-                //todo and the web user logic
-                $result = Role::getRoles(5)->pluck('name', 'id');
-            }else{ //web
-                $rols = Admin::user()->roles->first();
-                $result = Role::getRoles($rols->id)->pluck('name', 'id');
-            }
+//            if(Admin::user()->can("owner")){ //internal
+//                //todo and the web user logic
+//                $result = Role::getRoles(5)->pluck('name', 'id');
+//                $rols = Admin::user()->roles->first();
+//                $result = Role::getRoles($rols->id)->pluck('name', 'id');
+//            }else{ //web
+//                $rols = Admin::user()->roles->first();
+//                $result = Role::getRoles($rols->id)->pluck('name', 'id');
+//            }
+            $rols = Admin::user()->roles->first();
+            $result = Role::getRoles($rols->id)->pluck('name', 'id');
             $form->multipleSelect('roles', trans('admin::lang.roles'))->options($result);
             //xxl end roles
 

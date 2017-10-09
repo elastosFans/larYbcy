@@ -20,8 +20,6 @@ class InterfaceLogController extends Controller
      */
     public function index()
     {
-        //die("index");
-
         return Admin::content(function (Content $content) {
             $content->header(trans('admin::lang.upload_title'));
             $content->description(trans('admin::lang.list'));
@@ -29,13 +27,13 @@ class InterfaceLogController extends Controller
         });
     }
 
-    /**
-     * Edit interface.
-     *
-     * @param $id
-     *
-     * @return Content
-     */
+//    /**
+//     * Edit interface.
+//     *
+//     * @param $id
+//     *
+//     * @return Content
+//     */
 //    public function edit($id)
 //    {
 //        return Admin::content(function (Content $content) use ($id) {
@@ -92,7 +90,19 @@ class InterfaceLogController extends Controller
                 });
             });
 
+            //xxl control enable download/disable edit
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->disableEdit();
+                $actions->enableDownload();
+            });
+
             $grid->disableExport();
+
+            //xxl web user
+            if(Admin::user()->cannot("owner")){
+                $ids = Admin::user()->getUsersFromType(Admin::user()->type);
+                $grid->model()->whereIn('user',$ids);
+            }
         });
     }
 
@@ -106,15 +116,13 @@ class InterfaceLogController extends Controller
         return InterfaceLog::form(function (Form $form) {
             $form->display('id', 'ID');
             $form->file('file_name', trans('admin::lang.file_name'));
+            $form->hidden('user', trans('admin::lang.show_name'));
             $form->hidden('show_name', trans('admin::lang.show_name'));
             $form->display('created_at', trans('admin::lang.created_at'));
             $form->display('updated_at', trans('admin::lang.updated_at'));
 
             $form->saving(function (Form $form) {
-//                die($form->file_name);
-//                $fileInfo = explode('/',$form->file_name);
-//                $form->show_name = $fileInfo[1];
-//                $form->user = "abc111";
+                $form->user = Admin::user()->id;
             });
         });
     }

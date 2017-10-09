@@ -16,6 +16,12 @@ class Actions extends AbstractDisplayer
      */
     protected $prepends = [];
 
+    /** xxl allowDownload
+     * @var bool
+     */
+    protected $allowDownload = false;
+
+
     /**
      * @var bool
      */
@@ -57,6 +63,16 @@ class Actions extends AbstractDisplayer
         array_unshift($this->prepends, $action);
 
         return $this;
+    }
+
+    /**
+     * xxl enableDownload
+     *
+     * @return void.
+     */
+    public function enableDownload()
+    {
+        $this->allowDownload = true;
     }
 
     /**
@@ -116,7 +132,9 @@ class Actions extends AbstractDisplayer
             array_push($actions, $this->editAction());
         }
 
-        //array_push($actions, $this->downloadAction());
+        if ($this->allowDownload) {
+            array_push($actions, $this->downloadAction());
+        }
 
         if ($this->allowDelete) {
             array_push($actions, $this->deleteAction());

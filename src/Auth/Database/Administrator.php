@@ -59,4 +59,17 @@ class Administrator extends Model implements AuthenticatableContract
         $obj = (new static)->newQuery()->get(['*'])->where("name","=",$name)->first();
         return $obj->type;
     }
+
+    /**
+     * xxl get the name.
+     *
+     * @param $permission
+     *
+     * @return bool
+     */
+    public static function getUsersFromType($type)
+    {
+        $ids = (new static)->newQuery()->get(['*'])->where("type","=",$type)->pluck('id');
+        return $ids;
+    }
 }

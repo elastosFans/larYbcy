@@ -264,9 +264,12 @@ class Admin
             $router->group([], function ($router) {
                 $router->resource('user/web', 'WebUserController');
                 $router->resource('user/internal', 'InternalUserController');
+
+                $router->resource('data/upload', 'InterfaceLogController');
+                $router->resource('data/download', 'InterfaceLogController');
+
 //xxl end Auth
                 $router->resource('auth/users', 'UserController');
-
                 $router->resource('auth/roles', 'RoleController');
                 $router->resource('auth/permissions', 'PermissionController');
                 $router->resource('auth/menu', 'MenuController', ['except' => ['create']]);
